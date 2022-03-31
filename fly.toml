@@ -32,7 +32,7 @@ script_checks = []
 [launcher]
 name = "MySQL"
 description = "MySQL is a widely used, open-source relational database management system (RDBMS)."
-logo_url = "https://github.com/lubien/redis-launcher/raw/main/mysql.png"
+logo_url = "https://github.com/lubien/mysql-launcher/raw/main/mysql.png"
 post_instructions = "Your new MySQL app is ready to go"
 template_description = "This template will deploy a MySQL instance with an attached persistent volume."
 
