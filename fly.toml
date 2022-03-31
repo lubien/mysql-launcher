@@ -38,11 +38,15 @@ template_description = "This template will deploy a MySQL instance with an attac
 
 [requirements.secrets.MYSQL_DATABASE]
   label = "MYSQL_DATABASE"
+  required = true
 [requirements.secrets.MYSQL_USER]
   label = "MYSQL_USER"
+  required = true
 [requirements.secrets.MYSQL_PASSWORD]
   label = "MYSQL_PASSWORD"
   generate = 32
+  required = true
 [requirements.secrets.MYSQL_ROOT_PASSWORD]
   label = "MYSQL_ROOT_PASSWORD"
   generate = 32
+  required = true
