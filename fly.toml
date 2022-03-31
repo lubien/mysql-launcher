@@ -1,0 +1,48 @@
+image = "mysql"
+
+[env]
+
+[mounts]
+  destination = "/var/lib/mysql"
+  size_gb = 1
+  source = "data"
+
+[[services]]
+http_checks   = []
+internal_port = 3306
+processes     = [ "app" ]
+protocol      = "tcp"
+script_checks = []
+
+  [services.concurrency]
+  hard_limit = 500
+  soft_limit = 250
+  type       = "requests"
+
+  [[services.ports]]
+  handlers = [ "http" ]
+  port     = 3306
+
+  [[services.tcp_checks]]
+  grace_period  = "1s"
+  interval      = "15s"
+  restart_limit = 6
+  timeout       = "2s"
+
+[launcher]
+name = "MySQL"
+description = "MySQL is a widely used, open-source relational database management system (RDBMS)."
+logo_url = "https://github.com/lubien/redis-launcher/raw/main/mysql.png"
+post_instructions = "Your new MySQL app is ready to go"
+template_description = "This template will deploy a MySQL instance with an attached persistent volume."
+
+[requirements.secrets.MYSQL_DATABASE]
+  label = "MYSQL_DATABASE"
+[requirements.secrets.MYSQL_USER]
+  label = "MYSQL_USER"
+[requirements.secrets.MYSQL_PASSWORD]
+  label = "MYSQL_PASSWORD"
+  generate = 32
+[requirements.secrets.MYSQL_ROOT_PASSWORD]
+  label = "MYSQL_ROOT_PASSWORD"
+  generate = 32
