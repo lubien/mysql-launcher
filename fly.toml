@@ -36,17 +36,19 @@ logo_url = "https://github.com/lubien/mysql-launcher/raw/main/mysql.png"
 post_instructions = "Your new MySQL app is ready to go"
 template_description = "This template will deploy a MySQL instance with an attached persistent volume."
 
-[requirements.secrets.MYSQL_DATABASE]
-  label = "MYSQL_DATABASE"
+[launcher.requirements.secrets.MYSQL_DATABASE]
   required = true
-[requirements.secrets.MYSQL_USER]
-  label = "MYSQL_USER"
+
+[launcher.requirements.secrets.MYSQL_USER]
   required = true
-[requirements.secrets.MYSQL_PASSWORD]
-  label = "MYSQL_PASSWORD"
-  generate = 32
+  position = 1
+
+[launcher.requirements.secrets.MYSQL_PASSWORD]
+  default_random_string = 32
   required = true
-[requirements.secrets.MYSQL_ROOT_PASSWORD]
-  label = "MYSQL_ROOT_PASSWORD"
-  generate = 32
+  position = 2
+
+[launcher.requirements.secrets.MYSQL_ROOT_PASSWORD]
+  default_random_string = 32
   required = true
+  position = 3
